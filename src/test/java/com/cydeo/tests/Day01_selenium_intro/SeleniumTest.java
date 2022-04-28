@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SeleniumTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException{
         //1- Setting up the web driver manager
         //We create our " Browser Driver"
 
@@ -16,6 +16,10 @@ public class SeleniumTest {
 
         //3- Test if drive is working as we expected
         driver.get("https://www.google.com");
-       // driver.get("https://www.facebook.com");
+
+
+        Thread.sleep(3000);
+
+        driver.get("https://www.facebook.com");
     }
 }
