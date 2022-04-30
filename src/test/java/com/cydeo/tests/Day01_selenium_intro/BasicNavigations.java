@@ -14,7 +14,8 @@ public class BasicNavigations {
         WebDriver driver = new ChromeDriver();
 
         //This line will maximize the browser size
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
+        // driver.manage().window().fullscreen();
 
         //3- Go to "https://www.tesla.com"
         driver.get("https://www.tesla.com");
@@ -50,6 +51,8 @@ public class BasicNavigations {
         // use navigate().to():
         driver.navigate().to("https://www.google.com");
 
+        driver.close();//will close only the currently opened browser
+
         //get the current title after getting the google page
         currentTitle = driver.getTitle();
 
@@ -62,5 +65,8 @@ public class BasicNavigations {
         currentURL = driver.getCurrentUrl();
 
         System.out.println("currentURL = " + currentURL);
+
+        driver.quit();// this will close all of them,which is opened  ..no lines executed after quit method
+
     }
 }
