@@ -13,7 +13,7 @@ public class T5_getText_getAttribute {
         //1- Open a Chrome browser
 
         WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
 
         //2- Go to: https://practice.cydeo.com/registration_form
@@ -22,12 +22,12 @@ public class T5_getText_getAttribute {
 
         //3- Verify header text is as expected:
         String expectedHeaderText = "Registration form";
-        String actualHeaderText= driver.findElement(By.tagName("h2")).getText();
+        String actualHeaderText = driver.findElement(By.tagName("h2")).getText();
         System.out.println(actualHeaderText);
 
-        if(actualHeaderText.equals(expectedHeaderText)){
+        if (actualHeaderText.equals(expectedHeaderText)) {
             System.out.println("Header Text verification Passed!...Good Job!");
-        }else{
+        } else {
             System.out.println("Header Text verification Failed!...Sorry!!");
         }
 
@@ -37,12 +37,19 @@ public class T5_getText_getAttribute {
         // name attribute has "firstname" value
 
 
-        WebElement FirstNameInput= driver.findElement(By.className("form-control"));
+        WebElement FirstNameInput = driver.findElement(By.className("form-control"));
         //WebElement firstNameInput = driver.findElement(By.name("firstname"));
 
         //5- Verify placeholder attribute’s value is as expected:
         // Expected: first name
-
+        String expectedPlaceHolder = "first name";
+        String actualPlaceHolder = FirstNameInput.getAttribute("placeholder");// elementi bulduk. oradaki yazinin ayni oldugunu ögrenecegiz simdi
+        if(actualPlaceHolder.equals(expectedPlaceHolder)){
+            System.out.println("PlaceHolder verification Passed!...Good Job!");
+        } else {
+            System.out.println("PlaceHolder verification Failed!...Sorry!!");
+        }
+//driver.close();
 
 
     }

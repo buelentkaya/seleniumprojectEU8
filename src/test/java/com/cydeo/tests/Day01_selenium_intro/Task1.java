@@ -1,7 +1,9 @@
 package com.cydeo.tests.Day01_selenium_intro;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.opera.OperaDriver;
 
 public class Task1 {
@@ -14,6 +16,10 @@ public class Task1 {
         driver.get("https://www.yahoo.com/");
 
         driver.manage().window().maximize();
+
+        WebElement akzeptierenButton= driver.findElement(By.tagName("button"));
+        akzeptierenButton.click();
+
 
         //WAIT 30 SECONDS
         //driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);

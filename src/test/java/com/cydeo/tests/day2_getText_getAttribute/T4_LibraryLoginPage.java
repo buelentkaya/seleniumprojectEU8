@@ -29,12 +29,14 @@ public class T4_LibraryLoginPage {
 
         //6. Verify: visually “Sorry, Wrong Email or Password”
         //displayed
-
-
-
+/*
+        String sorry = driver.findElement(By.className("alert-danger")).getAttribute("alert");
+        System.out.println(sorry);
 
         String expectedText="Sorry, Wrong Email or Password";
         String actualText=driver.findElement(By.tagName("button")).getText();
         System.out.println(actualText);// Sign in
+        */
+
     }
 }

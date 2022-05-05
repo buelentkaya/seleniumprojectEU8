@@ -46,6 +46,20 @@ public class T3_GoogleSearch {
         WebElement googleSearchBox = driver.findElement(By.linkText("q"));
         googleSearchBox.sendKeys("apple" + Keys.ENTER);
 
+         //5- Verify title:
+        //Expected: Title should start with “apple” word
+
+        String expectedInTitle = "apple";
+        String actualInTitle = driver.getTitle();
+
+        if (actualInTitle.startsWith("apple")) {
+            System.out.println("Title verification Passed!");
+        } else {
+            System.out.println("Title verification failed.");
+        }
+        //driver.close();
+    }
+}
 
 
         //   WebElement neinButton = driver.findElement(By.linkText("Nein, danke"));
@@ -80,18 +94,4 @@ public class T3_GoogleSearch {
 
 
 
-        //5- Verify title:
-        //Expected: Title should start with “apple” word
-
-        String expectedInTitle = "apple";
-        String actualInTitle = driver.getTitle();
-
-        if (actualInTitle.startsWith("apple")) {
-            System.out.println("Title verification Passed!");
-        } else {
-            System.out.println("Title verification failed.");
-        }
-        //driver.close();
-    }
-}
 
