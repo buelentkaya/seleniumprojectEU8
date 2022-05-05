@@ -51,7 +51,7 @@ public class BasicNavigations {
         // use navigate().to():
         driver.navigate().to("https://www.google.com");
 
-        driver.close();//will close only the currently opened browser
+        //driver.close();//will close only the currently opened browser
 
         //get the current title after getting the google page
         currentTitle = driver.getTitle();
@@ -66,7 +66,7 @@ public class BasicNavigations {
 
         System.out.println("currentURL = " + currentURL);
 
-        driver.quit();// this will close all of them,which is opened  ..no lines executed after quit method
+       // driver.quit();// this will close all of them,which is opened  ..no lines executed after quit method
 
     }
 }

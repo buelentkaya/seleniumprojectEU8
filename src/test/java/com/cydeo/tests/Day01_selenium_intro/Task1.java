@@ -2,14 +2,14 @@ package com.cydeo.tests.Day01_selenium_intro;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.opera.OperaDriver;
 
 public class Task1 {
     public static void main(String[] args) {
 
-        WebDriverManager.chromedriver().setup();// set up for browser
+        WebDriverManager.operadriver().setup();// set up for browser
 
-        WebDriver driver = new ChromeDriver();//to open the browser
+        WebDriver driver = new OperaDriver();//to open the browser
 
         driver.get("https://www.yahoo.com/");
 
@@ -30,6 +30,6 @@ public class Task1 {
             System.out.println("Title is NOT as expected.Verification FAILED!");
         }
 
-        driver.close();
+        //driver.close();
     }
 }
