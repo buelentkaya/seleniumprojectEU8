@@ -36,6 +36,6 @@ public class Task1 {
             System.out.println("Title is NOT as expected.Verification FAILED!");
         }
 
-        //driver.close();
+        driver.close();
     }
 }

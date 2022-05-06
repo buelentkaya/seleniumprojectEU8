@@ -10,12 +10,18 @@ public class T3_GoogleSearch {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
-       /* options.addArguments("disable-notifications");
+
+
+        options.setAcceptInsecureCerts(true);
+
+      //  options.addArguments("no-notifications");
+
+        options.addArguments("use-fake-ui-for-media-stream");
 
         options.addArguments("disable-geolocation");
         options.addArguments("disable-media-stream");
         options.addArguments("--disable-extentions");
-        options.addArguments("disable-infobars");*/
+        options.addArguments("disable-infobars");
 
         WebDriver driver = new ChromeDriver(options);
         driver.manage().window().maximize();
@@ -43,7 +49,7 @@ public class T3_GoogleSearch {
 
         Thread.sleep(5000);
 
-        WebElement googleSearchBox = driver.findElement(By.linkText("q"));
+        WebElement googleSearchBox = driver.findElement(By.name("q"));
         googleSearchBox.sendKeys("apple" + Keys.ENTER);
 
          //5- Verify title:

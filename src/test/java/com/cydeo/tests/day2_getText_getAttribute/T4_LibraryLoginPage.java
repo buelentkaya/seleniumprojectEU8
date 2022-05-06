@@ -10,7 +10,7 @@ public class T4_LibraryLoginPage {
     public static void main(String[] args) {
 
         WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
 
         driver.get("https://library2.cybertekschool.com/login.html");
@@ -20,11 +20,11 @@ public class T4_LibraryLoginPage {
         usernameInput.sendKeys("incorrect@email.com");
 
         //4. Enter password: “incorrect password”
-  WebElement password= driver.findElement(By.id("inputPassword"));
-  password.sendKeys("incorrect password");
+        WebElement password = driver.findElement(By.id("inputPassword"));
+        password.sendKeys("incorrect password");
 
         //5. Click to Sign in button
-        WebElement signInButton= driver.findElement(By.tagName("button"));
+        WebElement signInButton = driver.findElement(By.tagName("button"));
         signInButton.click();
 
         //6. Verify: visually “Sorry, Wrong Email or Password”

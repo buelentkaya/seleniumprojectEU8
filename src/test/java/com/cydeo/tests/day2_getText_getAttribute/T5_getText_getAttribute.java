@@ -44,6 +44,10 @@ public class T5_getText_getAttribute {
         // Expected: first name
         String expectedPlaceHolder = "first name";
         String actualPlaceHolder = FirstNameInput.getAttribute("placeholder");// elementi bulduk. oradaki yazinin ayni oldugunu ögrenecegiz simdi
+        System.out.println(actualPlaceHolder);
+
+
+
         if(actualPlaceHolder.equals(expectedPlaceHolder)){
             System.out.println("PlaceHolder verification Passed!...Good Job!");
         } else {
