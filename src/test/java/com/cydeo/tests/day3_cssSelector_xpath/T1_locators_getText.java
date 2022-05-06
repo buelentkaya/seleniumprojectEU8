@@ -18,7 +18,7 @@ public class T1_locators_getText {
         //3- Enter incorrect username: “incorrect”
         //driver.findElement(By.className("login-inp")).sendKeys("incorrect");
         //WebElement userName=driver.findElement(By.className("login-inp"));
-        WebElement userName=driver.findElement(By.name("USER_LOGIN"));
+        WebElement userName = driver.findElement(By.name("USER_LOGIN"));
         userName.sendKeys("incorrect");
 
 
@@ -30,10 +30,21 @@ public class T1_locators_getText {
         WebElement userPassword = driver.findElement(By.name("USER_PASSWORD"));
         userPassword.sendKeys("incorrect");
 
+        //5- Click to log in button.
+        WebElement logIn = driver.findElement(By.className("login-btn"));
+        logIn.click();
 
-        WebElement signIn= driver.findElement(By.className("login-btn"));
-        signIn.click();
 
+        //6- Verify error message text is as expected:
+        //Expected: Incorrect login or password
+        WebElement errorAlert = driver.findElement(By.className("errortext"));
+        String errorMessage = "Incorrect login or password";
+        if (errorAlert.getText().equals(errorMessage)) {
+            System.out.println("Error Message Verification Passed!!!");
+        } else {
+            System.out.println("Error Message Verification fAILED!!!!");
+        }
 
+        driver.close();
     }
 }
