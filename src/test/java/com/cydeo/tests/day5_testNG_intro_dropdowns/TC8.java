@@ -32,7 +32,7 @@ public class TC8 {
     }
 
     @Test
-    public void test1() {
+    public void TestTheOptions() {
 
         selectTheOptionsAndPrintOut(6);
 
