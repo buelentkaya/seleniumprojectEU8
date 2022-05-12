@@ -32,12 +32,7 @@ public class TC6_SelectingDate {
 
         selectTheDate("year", "1923", "month", "11", "day", 1);
 
-
-
-
     }
-
-
 
 
 
