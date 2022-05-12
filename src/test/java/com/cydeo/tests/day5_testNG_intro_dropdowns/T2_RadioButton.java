@@ -20,7 +20,7 @@ public class T2_RadioButton {
         //2. Go to https://practice.cydeo.com/radio_buttons
         driver.get("https://practice.cydeo.com/radio_buttons");
 
-        buttonIsSelected("football");
+        buttonIsSelected("Football");
         buttonIsSelected("hockey");
         buttonIsSelected("basketball");
         buttonIsSelected("water_polo");
