@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 public class TC8 {
 
-    WebDriver driver;
+    static WebDriver driver;
 
 
     @BeforeMethod
@@ -26,31 +26,39 @@ public class TC8 {
         driver.get("https://practice.cydeo.com//dropdown");
     }
 
-    @AfterClass
-    public void finish() {
+    @AfterMethod
+    public void tearDownMethod() {
         driver.quit();
     }
 
     @Test
     public void test1() {
-        Select multipleDropDown = new Select(driver.findElement(By.xpath("//select[@name='Languages']")));
-        List<WebElement> allOptions = multipleDropDown.getOptions();
 
-        // Select all the options from multiple select dropdown.
-        multipleDropDown.selectByIndex(0);
-        HandleWait.staticWait(1);
-        multipleDropDown.selectByValue("js");
-        HandleWait.staticWait(1);
-        multipleDropDown.selectByVisibleText("C#");
-        HandleWait.staticWait(1);
-        multipleDropDown.selectByIndex(3);
-        HandleWait.staticWait(1);
-        multipleDropDown.selectByValue("ruby");
-        HandleWait.staticWait(1);
-        multipleDropDown.selectByVisibleText("C");
-        HandleWait.staticWait(1);
+        selectTheOptionsAndPrintOut(6);
 
-        // Print out all selected values.
+        deselectTheOptions(6);
+
+
+    }
+
+
+
+
+
+
+    public static void selectTheOptionsAndPrintOut(int numberOfOptions) {
+        Select multipleDropDown = new Select(driver.findElement(By.xpath("//select[@name='Languages']")));// here we find the multiple dropdown menu first
+        List<WebElement> allOptions = multipleDropDown.getOptions();//there are 6 options here from java to c..,which is an <arraylist with six elements in
+
+        for (int i = 0; i < numberOfOptions; i++) {
+
+            // Select all the options from multiple select dropdown.
+            multipleDropDown.selectByIndex(i);
+            HandleWait.staticWait(1);
+
+            // Print out all selected values.
+
+        }
         for (WebElement each : allOptions) {
             if (each.isSelected()) {
 
@@ -58,19 +66,17 @@ public class TC8 {
             }
         }
 
-        // Deselect all values.
-        multipleDropDown.deselectByIndex(0);
-        HandleWait.staticWait(1);
-        multipleDropDown.deselectByIndex(1);
-        HandleWait.staticWait(1);
-        multipleDropDown.deselectByIndex(2);
-        HandleWait.staticWait(1);
-        multipleDropDown.deselectByIndex(3);
-        HandleWait.staticWait(1);
-        multipleDropDown.deselectByIndex(4);
-        HandleWait.staticWait(1);
-        multipleDropDown.deselectByIndex(5);
-        HandleWait.staticWait(1);
+    }
+
+
+    public static void deselectTheOptions(int numberOfOptions) {
+        Select multipleDropDown = new Select(driver.findElement(By.xpath("//select[@name='Languages']")));// here we find the multiple dropdown menu first
+        //List<WebElement> allOptions = multipleDropDown.getOptions();
+
+        for (int i = 0; i < numberOfOptions; i++) {
+            multipleDropDown.deselectByIndex(i);
+            HandleWait.staticWait(1);
+        }
 
 
     }
