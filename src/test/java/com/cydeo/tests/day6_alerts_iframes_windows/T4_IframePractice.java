@@ -43,12 +43,17 @@ public class T4_IframePractice {
 
         //WebElement headerText=driver.findElement(By.xpath("//h3"));
         //WebElement headerText=driver.findElement(By.xpath("//h3[text()='An iFrame containing the TinyMCE WYSIWYG Editor']"));
-        WebElement headerText=driver.findElement(By.xpath("//div[@class='example']"));
-        headerText.getText();
-        System.out.println("headerText = " + headerText);//headerText = [[ChromeDriver: chrome on WINDOWS (4a50755d8fdb920055701c8e74dc312e)] -> xpath: //h3[text()='An iFrame containing the TinyMCE WYSIWYG Editor']]
+       // WebElement headerText=driver.findElement(By.xpath("//div[@class='example']"));
+        //headerText.getText();
+        //System.out.println("headerText = " + headerText);//headerText = [[ChromeDriver: chrome on WINDOWS (4a50755d8fdb920055701c8e74dc312e)] -> xpath: //h3[text()='An iFrame containing the TinyMCE WYSIWYG Editor']]
+
+                WebElement tinyMCE = driver.findElement(By.tagName("h3"));
+        System.out.println( tinyMCE.getText());
+
+
 
         //assertion of header text is displayed or not
-        Assert.assertTrue(headerText.isDisplayed());
+      //  Assert.assertTrue(headerText.isDisplayed());
 
 
 
