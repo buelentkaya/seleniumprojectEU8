@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class TC7_SelectingValue {
-   static WebDriver driver;
+    static WebDriver driver;
 
 
     @BeforeMethod
@@ -26,25 +26,25 @@ public class TC7_SelectingValue {
 
     @AfterMethod
     public void tearDownMethod() {
-        driver.close();
+        //0driver.close();
     }
 
 
     @Test
     public void selectingValuefromNonSelectDropdown() {
 
-        selectingTheLinkFromTheDropdonLink("yahoo");
+        selectingTheLinkFromTheDropdonLink("facebook");
     }
 
-    public static void selectingTheLinkFromTheDropdonLink(String nameOfTheWebSite){
+    public static void selectingTheLinkFromTheDropdonLink(String nameOfTheWebSite) {
 
         WebElement nonSelectDropdown = driver.findElement(By.xpath("//a[@id='dropdownMenuLink']"));
-        nonSelectDropdown.click();
+        nonSelectDropdown.click();   // finds the dropdown menü
         HandleWait.staticWait(2);
-nameOfTheWebSite=nameOfTheWebSite.substring(0,1).toUpperCase()+nameOfTheWebSite.substring(1).toLowerCase();
+        nameOfTheWebSite = nameOfTheWebSite.substring(0, 1).toUpperCase() + nameOfTheWebSite.substring(1).toLowerCase();
 
-        WebElement eachItemOntheDropdownMenu = driver.findElement(By.xpath("//a[text()='"+nameOfTheWebSite+"']"));
-        eachItemOntheDropdownMenu.click();
+        WebElement eachItemOntheDropdownMenu = driver.findElement(By.xpath("//a[text()='" + nameOfTheWebSite + "']"));// finds the element on the dropdown menu
+        eachItemOntheDropdownMenu.click(); // then click the item on the dropdown menu
         HandleWait.staticWait(2);
 
         driver.findElement(By.xpath("//button[.='Allow essential and optional cookies']")).click();

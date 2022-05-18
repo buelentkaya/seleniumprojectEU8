@@ -24,7 +24,7 @@ public class TC6_SelectingDate {
 
     @AfterMethod
     public void tearDownMethod() {
-        driver.close();
+       // driver.close();
     }
 
     @Test
