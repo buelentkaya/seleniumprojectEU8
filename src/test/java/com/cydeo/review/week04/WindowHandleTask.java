@@ -8,6 +8,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class WindowHandleTask {
@@ -28,51 +29,77 @@ public class WindowHandleTask {
 
     @AfterMethod
     public void tearDown() {
-        //driver.close();
+       // driver.close();
     }
 
 
     @Test
     public void scenario1() {
-        // Using the Valet parking lot, set today as the entry date & time
-        String mainHandle = driver.getWindowHandle();
-        System.out.println("mainHandle = " + mainHandle);//CDwindow-4DEA27DF8D2BB7AF167AE3DF219435E1
-        System.out.println("actualWindowTitle  " + driver.getTitle());   //Parking Cost Calculator
+/* Using the Valet parking lot,
+        set today as the entry date & time and tomorrow as the exit giving a full 24 hour window
+        (you can attempt to use the DatePicker */
 
-        driver.findElement(By.xpath("//img[@src='cal.gif'][1]")).click();// we find the input entry date and time link and clik it
-        HandleWait.staticWait(2);
+        driver.findElement(By.xpath("(//img[@src='cal.gif'])[1]")).click(); //  (//img[@alt='Pick a date])[1]  we use 1 because there is more than one
 
-        driver.findElement(By.xpath("//table[@border='1']/tbody//tr[6]//td[6]")).click();
+        Set<String> windowHandles = driver.getWindowHandles();
+        System.out.println("windowHandles = " + windowHandles);
 
-    }
-        /*
-        Set<String> allWindowsHandles=driver.getWindowHandles(); // we we save all the oppened windows
 
-        System.out.println("allWindowsHandles = " + allWindowsHandles);
+        String mainWindowHandle = driver.getWindowHandle();
 
-        HandleWait.staticWait(2);
-        for (String each : allWindowsHandles) {
+        for (String eachWindowHandle : windowHandles) {
+            if (!eachWindowHandle.equals(mainWindowHandle)) {
+                driver.switchTo().window(eachWindowHandle);
+            }
+        }
+        //click on the element at the second window
+        driver.findElement(By.linkText("24")).click();//the window closes itself, however I am still inside that closed window programatocally
+        HandleWait.staticWait(1);
 
-            driver.switchTo().window(each);
 
-            System.out.println("Current URL: " + driver.getCurrentUrl());
+        driver.switchTo().window(mainWindowHandle);
 
-            //if (driver.getCurrentUrl().contains(expectedInUrl)){
-         //       break;
+        driver.findElement(By.xpath("//input[@id='StartingTime']")).clear();
+        driver.findElement(By.xpath("//input[@id='StartingTime']")).sendKeys("10:00");
+
+
+
+
+        
+
+        //to set the leaving date
+
+
+        driver.findElement(By.xpath("(//img[@src='cal.gif'])[2]")).click(); //  (//img[@alt='Pick a date])[1]  we use 1 because there is more than one
+
+        for (String eachWindowHandle : windowHandles) {
+            if (!eachWindowHandle.equals(mainWindowHandle)) {
+                driver.switchTo().window(eachWindowHandle);
             }
         }
 
-        //5. Assert:Title contains “expectedInTitle”
-     //   String actualTitle = driver.getTitle();
-     //   Assert.assertTrue(actualTitle.contains(expectedInTitle));
+
+        driver.findElement(By.linkText("24")).click();//the window closes itself, however I am still inside that closed window programatocally
+        HandleWait.staticWait(1);
 
 
-*/
+        driver.switchTo().window(mainWindowHandle);
 
-        // and tomorrow as the exit giving a full 24 hour window (you can attempt to use the DatePicker).
+        driver.findElement(By.xpath("//input[@id='StartingTime']")).clear();
+
+        driver.findElement(By.xpath("//input[@id='StartingTime']")).sendKeys("19:00");
+
+        driver.findElement(By.xpath("//input[@value='PM']")).click();
+
+
+
+
 
 
     }
+
+
+}
 
 
 

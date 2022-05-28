@@ -35,7 +35,7 @@ public class AlertTask {
 
     @AfterMethod
     public void tearDown() {
-        //driver.close();
+        driver.close();
     }
 
     @Test(priority = 1)
@@ -75,7 +75,10 @@ public class AlertTask {
 
 
     }
-
+//     public static void getLink(WebDriver driver, String link){
+//        driver.findElement(By.partialLinkText(link)).click();     // "Laptops"
+//        staticWait(1);
+//    }
 
 
 
@@ -84,12 +87,15 @@ public class AlertTask {
 
         navigate(nameOfTheCategory);
         HandleWait.staticWait(1);
+
         driver.findElement(By.xpath("//a[.='" + item + "']")).click();
         HandleWait.staticWait(1);
+
         driver.findElement(By.xpath("//a[.='Add to cart']")).click();
         HandleWait.staticWait(1);
+
         Alert alert = driver.switchTo().alert();
-        alert.accept();
+        alert.accept();  // aller.dismiss(); is also used here
 
         driver.navigate().back();
 

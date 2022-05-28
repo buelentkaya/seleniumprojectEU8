@@ -4,9 +4,11 @@ import com.cydeo.utilities.HandleWait;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
@@ -54,6 +56,32 @@ public class Iframe {
 
         Assert.assertEquals(text,expectedText,"Text in the Iframe Verification Failed");
     }
+@Ignore
+    @Test
+    public void iframeTest(){
+
+        WebDriver driver = WebDriverFactory.getDriver("chrome");
+
+        driver.manage().window().maximize();
+
+        driver.get("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_ev_ondblclick2");
+
+        // we need to change frame
+        driver.switchTo().frame("iframeResult");
+
+        HandleWait.staticWait(2);
+        WebElement demoElement =    driver.findElement(By.id("demo"));
+
+        String demoText = demoElement.getText();
+
+        System.out.println("demoText = " + demoText);
+
+        driver.close();
+
+
+    }
+
+
 
 
 }
