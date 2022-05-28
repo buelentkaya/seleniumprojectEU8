@@ -70,7 +70,7 @@ public class XPath29TaskRegistrationForm {
 
         WebElement deparmentField = driver.findElement(By.xpath("//select[@name='department']"));
         Select selectDepartmentObj = new Select(deparmentField);
-        selectDepartmentObj.selectByIndex(2);
+        //selectDepartmentObj.selectByIndex(2);
 
         WebElement jobField = driver.findElement(By.xpath("//select[@name='job_title']"));
         Select selectJobObj = new Select(jobField);
@@ -85,7 +85,7 @@ public class XPath29TaskRegistrationForm {
         sigupBtn.click();
 
 
-        System.out.println(driver.findElement(By.xpath("//h4[@class='alert-heading' and text()='Well done!']")).isDisplayed());
+       System.out.println(driver.findElement(By.xpath("//h4[@class='alert-heading' and text()='Well done!']")).isDisplayed());
 
 
     }
