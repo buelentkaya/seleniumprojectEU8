@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class XPath29TaskRegistrationForm {
+public class TaskRegistrationForm {
 
 
     public WebDriver driver;
