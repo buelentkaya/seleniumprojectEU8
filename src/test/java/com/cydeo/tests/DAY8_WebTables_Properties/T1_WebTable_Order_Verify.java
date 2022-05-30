@@ -1,10 +1,12 @@
 package com.cydeo.tests.DAY8_WebTables_Properties;
 
 import com.cydeo.utilities.WebDriverFactory;
+import com.cydeo.utilities.WebTableUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -29,7 +31,7 @@ public class T1_WebTable_Order_Verify {
         //System.out.println(driver.findElement(By.xpath("//table[@id='ctl00_MainContent_orderGrid']/tbody/tr[7]/td[2]")).getText());//Bob Martin
         WebElement bobMartinCell =
                 driver.findElement(By.xpath("//table[@id='ctl00_MainContent_orderGrid']//td[.='Bob Martin']"));
-              //  driver.findElement(By.xpath("//td[.='Bob Martin']"));
+        //  driver.findElement(By.xpath("//td[.='Bob Martin']"));
 
         //System.out.println("bobMartinCell.getText() = " + bobMartinCell.getText());
 
@@ -57,17 +59,24 @@ public class T1_WebTable_Order_Verify {
         //We use the utility method we created.
 
 
-
-
-
-
-
-
-
-
-
-
     }
 
 
+    @Test
+    public void test2() {
+        WebTableUtils.returnOrderDate(driver, "Alexandra Gray");
+    }
+
+    @Test
+    public void test3() {
+        WebTableUtils.orderVerify(driver, "Robert Baratheon", "12/04/2021");
+    }
+
+
+    @AfterMethod
+    public void cleanUp() {
+        driver.quit();
+    }
+
 }
+
