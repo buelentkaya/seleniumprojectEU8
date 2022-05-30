@@ -29,6 +29,7 @@ public class T1_WebTable_Order_Verify {
         //System.out.println(driver.findElement(By.xpath("//table[@id='ctl00_MainContent_orderGrid']/tbody/tr[7]/td[2]")).getText());//Bob Martin
         WebElement bobMartinCell =
                 driver.findElement(By.xpath("//table[@id='ctl00_MainContent_orderGrid']//td[.='Bob Martin']"));
+              //  driver.findElement(By.xpath("//td[.='Bob Martin']"));
 
         //System.out.println("bobMartinCell.getText() = " + bobMartinCell.getText());
 
