@@ -37,11 +37,14 @@ public class T1_Alert_Practices {
         driver.findElement(By.xpath("//button[.='Click for JS Alert']")).click();
         HandleWait.staticWait(1);
 
-
 //To be able to click to Alert OK button we need to switch driver's focus to Alert itself.
         Alert alert = driver.switchTo().alert();
         //4. Click to OK button from the alert
         alert.accept();
+//to easier mode
+        //driver.findElement(By.xpath("//button[.='Click for JS Alert']")).click();
+        //driver.switchTo().alert().accept();
+
 
         //5. Verify “You successfully clicked an alert” text is displayed.
         String expectedText = "You successfully clicked an alert";
@@ -68,6 +71,11 @@ public class T1_Alert_Practices {
         Alert alert = driver.switchTo().alert();
         // 4. Click to OK button from the alert
         alert.accept();
+
+
+         //driver.findElement(By.xpath("//button[.='Click for JS Confirm']")).click();
+        //driver.switchTo().alert().accept();
+
         //   5. Verify “You clicked: Ok” text is displayed.
         String expectedText = "You clicked: Ok";
         String actualText = driver.findElement(By.id("result")).getText();

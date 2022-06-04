@@ -22,7 +22,7 @@ public class WebDriverFactory {
             return new ChromeDriver();// right side open a webpage
 
         } else if (browserType.equalsIgnoreCase("firefox")) {
-            WebDriverManager.firefoxdriver();
+            WebDriverManager.firefoxdriver().setup();
             return new FirefoxDriver();
 
         } else {

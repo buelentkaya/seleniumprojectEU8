@@ -33,7 +33,7 @@ public class TC7_SelectingValue {
     @Test
     public void selectingValuefromNonSelectDropdown() {
 
-        selectingTheLinkFromTheDropdonLink("facebook");
+        selectingTheLinkFromTheDropdonLink("Facebook");
     }
 
     public static void selectingTheLinkFromTheDropdonLink(String nameOfTheWebSite) {
@@ -43,13 +43,15 @@ public class TC7_SelectingValue {
         HandleWait.staticWait(2);
         nameOfTheWebSite = nameOfTheWebSite.substring(0, 1).toUpperCase() + nameOfTheWebSite.substring(1).toLowerCase();
 
-        WebElement eachItemOntheDropdownMenu = driver.findElement(By.xpath("//a[text()='" + nameOfTheWebSite + "']"));// finds the element on the dropdown menu
-        eachItemOntheDropdownMenu.click(); // then click the item on the dropdown menu
+        WebElement eachItemOnTheDropdownMenu = driver.findElement(By.xpath("//a[text()='" + nameOfTheWebSite + "']"));// finds the element on the dropdown menu
+        //WebElement eachItemOnTheDropdownMenu = driver.findElement(By.xpath("//a[.='" + nameOfTheWebSite + "']"));// finds the element on the dropdown menu
+        eachItemOnTheDropdownMenu.click(); // then click the item on the dropdown menu
+
         HandleWait.staticWait(2);
 
-        driver.findElement(By.xpath("//button[.='Allow essential and optional cookies']")).click();
+        driver.findElement(By.xpath("//button[@value='1']")).submit();
 
-        String expectedTitle = "Facebook - Log In or Sign Up";
+        String expectedTitle = "Bei Facebook anmelden";
         System.out.println(driver.getTitle());
 
         Assert.assertEquals(driver.getTitle(), expectedTitle, "Title Verification Failed!!!");

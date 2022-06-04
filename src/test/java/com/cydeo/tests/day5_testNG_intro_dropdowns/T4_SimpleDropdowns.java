@@ -43,7 +43,7 @@ public void tearDownMethod(){
         Assert.assertEquals(actualSimpleDropdownText, expectedSimpleDropdownText, "sorry it is not verrified");
 
         Select stateDropdown=new Select(driver.findElement(By.xpath("//select[@id='state']")));
-        String expectedStateDropdownText="";
+        String expectedStateDropdownText="Select a State";
 
         String actualStatDropdownText=stateDropdown.getFirstSelectedOption().getText();
         Assert.assertEquals(actualStatDropdownText,expectedStateDropdownText,"sorry it is not verrified");
