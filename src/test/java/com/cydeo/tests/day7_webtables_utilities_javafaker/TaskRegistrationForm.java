@@ -27,7 +27,7 @@ public class TaskRegistrationForm {
 
     @AfterMethod
     public void cleanUp() {
-        driver.close();
+        //driver.close();
     }
 
     @Test
@@ -85,6 +85,7 @@ public class TaskRegistrationForm {
         sigupBtn.click();
 
 
+      // System.out.println(driver.findElement(By.xpath("//h4[@class='alert-heading']")).isDisplayed());
        System.out.println(driver.findElement(By.xpath("//h4[@class='alert-heading' and text()='Well done!']")).isDisplayed());
 
 

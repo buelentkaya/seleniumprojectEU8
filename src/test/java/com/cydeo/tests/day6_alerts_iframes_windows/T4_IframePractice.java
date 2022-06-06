@@ -28,12 +28,15 @@ public class T4_IframePractice {
     public void iframe_Test(){
 
         //option #1- switching to iframe using id attribute value
-        driver.switchTo().frame("mce_0_ifr");// bununl sayfa icerisindeki iframe in icerisne girebildik..simdi kodlarla calisabiliriz
-
+        //driver.switchTo().frame(0); ilk frame girer sifir ile
+       // driver.switchTo().frame("mce_0_ifr");// bununl sayfa icerisindeki iframe in icerisne girebildik..simdi kodlarla calisabiliriz
+WebElement iFrameElement=driver.findElement(By.cssSelector("iframe[title^='Rich Text Area']"));
+driver.switchTo().frame(iFrameElement);
         //Locate the p tag
-       WebElement yourContentGoeshere=driver.findElement(By.xpath("//p"));// malesef buraya ulasamiyoruz cunu bu iframe in icerisinde önce bu iframe girmemiz gerekiyor
+      // WebElement yourContentGoeshere=driver.findElement(By.xpath("//p"));// malesef buraya ulasamiyoruz cunu bu iframe in icerisinde önce bu iframe girmemiz gerekiyor
+       WebElement yourContentGoesHere=driver.findElement(By.tagName("p"));// malesef buraya ulasamiyoruz cunu bu iframe in icerisinde önce bu iframe girmemiz gerekiyor
 
-        Assert.assertTrue(yourContentGoeshere.isDisplayed());
+        Assert.assertTrue(yourContentGoesHere.isDisplayed());
 
 
         //Veify "An iFrame containing the TinyMCE WYSIWYG Editor"
