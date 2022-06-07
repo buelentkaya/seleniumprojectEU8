@@ -1,6 +1,5 @@
 package com.cydeo.tests.day10Upload_Actions_jsexecutor;
 
-import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
 import com.cydeo.utilities.HandleWait;
 import com.github.javafaker.Faker;
@@ -19,7 +18,7 @@ public class T1RegistrationForm {
         //Driver.getDriver() --> driver
 
         //Driver.getDriver().get("https://practice.cydeo.com/registration_form");
-        Driver.getDriver().get(ConfigurationReader.getProperty("webSite"));
+        Driver.getDriver().get("https://practice.cydeo.com/registration_form");
 
         //Enter first name
         Faker faker=new Faker();
