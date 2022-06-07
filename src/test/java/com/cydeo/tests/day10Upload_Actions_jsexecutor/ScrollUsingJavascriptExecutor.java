@@ -14,12 +14,15 @@ public class ScrollUsingJavascriptExecutor {
     Driver.getDriver().get("https://practice.cydeo.com/large");
 
     WebElement element = Driver.getDriver().findElement(By.linkText("CYDEO"));
-    ((JavascriptExecutor)Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+   ((JavascriptExecutor)Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
     Thread.sleep(500);
 
     WebElement home = Driver.getDriver().findElement(By.linkText("Home"));
     ((JavascriptExecutor)Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", home);
     Thread.sleep(500);
+
+    ((JavascriptExecutor)Driver.getDriver()).executeScript("arguments[1].scrollIntoView(true);", element,home);
+    //arguments[1] means we have two arguments element and home here.
 
    /*
     3- Scroll down to “Cydeo” link
