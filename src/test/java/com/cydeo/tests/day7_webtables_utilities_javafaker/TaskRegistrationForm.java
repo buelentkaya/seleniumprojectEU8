@@ -35,6 +35,7 @@ public class TaskRegistrationForm {
         driver.get("http://practice.cybertekschool.com/registration_form");
 
         WebElement header = driver.findElement(By.xpath("//h2[.='Registration form']"));  //"//h2[text()='Registration form']"
+
         System.out.println("header.isDisplayed() = " + header.isDisplayed());//header.isDisplayed() = true
         //HandleWait.staticWait(1);
 
